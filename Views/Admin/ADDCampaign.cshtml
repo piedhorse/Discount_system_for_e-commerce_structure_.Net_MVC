@@ -1,0 +1,53 @@
+﻿@model WebApplication2.Models.Entity.DiscountTBL
+
+@{
+    ViewBag.Title = "ADDCampaign";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<form method="post" class="form-group">
+    <div>
+        <label>Start Date</label>
+        <input type="date" class="form-control" name="startdate" required="" maxlength="10" />
+    </div>
+    <div>
+        <label>End Date </label>
+        <input type="date" class="form-control" name="enddate" required="" />
+    </div>
+    <div>
+        <label>Discounted Products </label>
+        <br />  
+
+        @Html.DropDownListFor(m => m.discountedproducts, new SelectList(new Dictionary<string, string>
+ {
+      {"Teknoloji", "Teknoloji"},
+  {"Aksesuar", "Aksesuar"},
+  {"Mutfak", "Mutfak"},
+  {"Kırtasiye", "Kırtasiye"},
+  {"Elektronik", "Elektronik"},
+  {"Giyim", "Giyim"},
+  {"Takı", "Takı"}
+ }, "Value", "Key"))
+    </div>
+    <div>
+        <label>Discount Amount</label>
+
+        @Html.TextBoxFor(m => m.discountamount, new { @class = "form-control", @required = "" })
+    </div>
+    <div>
+        <label>Campaign Name </label>
+
+        @Html.TextBoxFor(m => m.campaignname, new { @class = "form-control", @required = "" })
+
+    </div>
+
+
+    <div>
+        <button class="btn btn-primary" style="margin-top:15px;">ADD Campaign</button>
+    </div>
+</form>
+
+

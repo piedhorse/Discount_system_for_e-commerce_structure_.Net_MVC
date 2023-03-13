@@ -1,0 +1,41 @@
+﻿
+@using WebApplication2.Models.Entity;
+@model List<ProductTBL>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1 style="text-align:center;">Products</h1>
+<br />
+<a href="/Home/ADDProduct/" class="btn btn-primary">ADD Product</a>
+
+<table class="table table-bordered">
+    <thead>
+
+        <tr>
+
+            <th>Product Price</th>
+            <th>Product Category</th>
+            <th>Product Name</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var urn in Model)
+        {
+            <tr>
+                <th>@urn.product_price$</th>
+                <th>@urn.product_category</th>
+                <th>@urn.product_name</th>
+                <td> <a href="/Home/RemoveProduct/@urn.ID" class="btn btn-danger">Remove Product</a></td>
+
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+

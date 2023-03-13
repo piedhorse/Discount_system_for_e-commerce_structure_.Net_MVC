@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "ADDProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model WebApplication2.Models.Entity.ProductTBL
+
+
+
+
+
+
+<form method="post" class="form-group">
+
+
+    <div>
+        <label>Product Price</label>
+
+        @Html.TextBoxFor(m => m.product_price, new { @class = "form-control", @required = "" })
+    </div>
+    <div>
+        <label>Product Category </label>
+        <br />
+        @Html.DropDownListFor(m => m.product_category, new SelectList(new Dictionary<string, string>
+{
+   {"Teknoloji", "Teknoloji"},
+  {"Aksesuar", "Aksesuar"},
+  {"Mutfak", "Mutfak"},
+  {"Kırtasiye", "Kırtasiye"},
+  {"Elektronik", "Elektronik"},
+  {"Giyim", "Giyim"},
+  {"Takı", "Takı"}
+}, "Value", "Key"))
+    </div>
+
+    <div>
+        <label>Product Name</label>
+
+        @Html.TextBoxFor(m => m.product_name, new { @class = "form-control", @required = "" })
+
+    </div>
+
+
+    <div>
+        <button class="btn btn-primary" style="margin-top:15px;">ADD Product</button>
+    </div>
+</form>
+
+
+

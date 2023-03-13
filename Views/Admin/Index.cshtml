@@ -1,0 +1,46 @@
+﻿@using WebApplication2.Models.Entity;
+@model List<DiscountTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 style="text-align:center;">
+    Admin Panel
+</h1>
+<br />
+<h5>Admin can only manage Campaigns</h5>
+<table id="tbl1" class="table table-bordered">
+    <thead>
+
+        <tr>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Discount Categories</th>
+            <th>Discount Amount</th>
+            <th>Campaign Name</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var urn in Model)
+        {
+            <tr>
+                <th>@urn.startdate</th>
+                <th>@urn.enddate</th>
+                <th>@urn.discountedproducts</th>
+                <th>%@urn.discountamount</th>
+                <th>@urn.campaignname</th>
+
+                <td> <a href="/Admin/RemoveCampaign/@urn.ID" class="btn btn-danger">Remove Campaign</a></td>
+                <td> <a href="/Admin/CampaignUpdateinfo/@urn.ID" class="btn btn-success">Campaign Update</a></td>
+
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+<a href="/Admin/ADDCampaign/" class="btn btn-primary">ADD Campaign</a>
